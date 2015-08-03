@@ -13,9 +13,5 @@ app.use('/api/swords', swords);
 app.use('/api/potions', potions);
 // app.use('/', routes);
 
-var server = app.listen(8080, function() {
-var host = server.address().address;
-var port = server.address().port;
-
-console.log('Woot, server started', host, port);
-});
+var server = app.listen(process.env.PORT || 8080);
+console.log('Woot, server started');
