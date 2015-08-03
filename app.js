@@ -18,4 +18,4 @@ var host = server.address().address;
 var port = server.address().port;
 
 console.log('Woot, server started', host, port);
-};
+});
