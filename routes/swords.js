@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var db = require('monk')(process.env.MONGOLAB_URI);
+// var db = require('monk')(process.env.MONGOLAB_URI);
+var db = require('monk')('localhost/swords')
 var Swords = db.get('swords');
+require('dotenv').load()
 
 router.get('/', function(req, res) {
   Swords.find({}, function(err, swords) {
@@ -31,7 +33,7 @@ router.post('/:id/delete', function(req, res) {
 })
 
 router.get('/:id', function(req, res) {
-  Sword.findOne({_id: req.params.id}, function(err, sword) {
+  Swords.findOne({_id: req.params.id}, function(err, sword) {
     if (err) {
       res.send(err)
     }
